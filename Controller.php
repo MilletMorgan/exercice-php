@@ -2,13 +2,52 @@
 
 include 'Model.php';
 
-function showDep($dataName, $bdd, $table)
+function showTableRegion($bdd)
 {
     $option = '';
-    $result = getDep($bdd, $table);
+    $result = getTableRegDep($bdd);
 
     while ($data = $result->fetch()) {
-        $option .= '<option value = "' . $data[$dataName] . '">' . $data[$dataName] . '</option>';
+        $option .= '<option value = "' . $data['region'] . '">' . $data['region'] . '</option>';
+    }
+
+    $result->closeCursor();
+    echo $option;
+}
+
+function showTableDepartement($bdd)
+{
+    $option = '';
+    $result = getTableRegDep($bdd);
+
+    while ($data = $result->fetch()) {
+        $option .= '<option value = "' . $data['departement'] . '">' . $data['departement'] . '</option>';
+    }
+
+    $result->closeCursor();
+    echo $option;
+}
+
+function showTableNafSection($bdd)
+{
+    $option = '';
+    $result = getTableNaf($bdd);
+
+    while ($data = $result->fetch()) {
+        $option .= '<option value = "' . $data['section_libelle'] . '">' . $data['section_libelle'] . '</option>';
+    }
+
+    $result->closeCursor();
+    echo $option;
+}
+
+function showTableNafDivision($bdd)
+{
+    $option = '';
+    $result = getTableNaf($bdd);
+
+    while ($data = $result->fetch()) {
+        $option .= '<option value = "' . $data['division_libelle'] . '">' . $data['division_libelle'] . '</option>';
     }
 
     $result->closeCursor();

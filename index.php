@@ -12,11 +12,9 @@
     <select id="region-select">
         <option value="">Quelle région ?</option>
         <?php
-        $table = "departement";
         $dataName = "region";
 
-        showDep($dataName, $bdd, $table);
-
+        showTableRegion($bdd);
         ?>
     </select>
 
@@ -25,15 +23,11 @@
     <label for="departement">Département</label>
     <select id="departement-select" name="departement-select">
         <option value="">Quelle département ?</option>
-
         <?php
-        $table = "departement";
         $dataName = "nom";
 
-        showDep($dataName, $bdd, $table);
-
+        showTableDepartement($bdd);
         ?>
-
     </select>
 
     <br><br>
@@ -42,10 +36,9 @@
     <select id="section-naf">
         <option value="">Quelle section ?</option>
         <?php
-        $table = "naf";
         $dataName = "section_libelle";
 
-        showDep($dataName, $bdd, $table);
+        showTableNafSection($bdd);
         ?>
     </select>
 
@@ -55,11 +48,9 @@
     <select id="division-naf">
         <option value="">Quelle division ?</option>
         <?php
-        $table = "naf";
         $dataName = "division_libelle";
 
-        showDep($dataName, $bdd, $table);
-
+        showTableNafDivision($bdd);
         ?>
     </select>
 

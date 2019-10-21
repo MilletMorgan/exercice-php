@@ -8,9 +8,16 @@
 
 include 'ConnectDBLocal.php';
 
-function getDep($bdd, $table)
+function getTableRegDep($bdd)
 {
-    $response = $bdd->query('SELECT * FROM ' . $table);
+    $response = $bdd->query('SELECT * FROM departement');
+
+    return $response;
+}
+
+function getTableNaf($bdd)
+{
+    $response = $bdd->query('SELECT * FROM naf');
 
     return $response;
 }
@@ -25,13 +32,6 @@ function getCpByNom($bdd, $nomDep)
 function getEffTotByCp($bdd, $cp)
 {
     $response = $bdd->query("SELECT EFF_TOT FROM effectifs WHERE DEP ='" . $cp . "'");
-
-    return $response;
-}
-
-/**
-function getCODGEOByCp($bdd, $cp) {
-    $response = $bdd->query("SELECT DEP FROM effectifs WHERE dep ='" . $cp . "'");
 
     return $response;
 }
