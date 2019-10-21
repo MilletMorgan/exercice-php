@@ -5,7 +5,7 @@ include 'Model.php';
 function showTableRegion($bdd)
 {
     $option = '';
-    $result = getTableRegDep($bdd);
+    $result = getTableReg($bdd);
 
     while ($data = $result->fetch()) {
         $option .= '<option value = "' . $data['region'] . '">' . $data['region'] . '</option>';
@@ -18,10 +18,10 @@ function showTableRegion($bdd)
 function showTableDepartement($bdd)
 {
     $option = '';
-    $result = getTableRegDep($bdd);
+    $result = getTableDep($bdd);
 
     while ($data = $result->fetch()) {
-        $option .= '<option value = "' . $data['departement'] . '">' . $data['departement'] . '</option>';
+        $option .= '<option value = "' . $data['nom'] . '">' . $data['nom'] . '</option>';
     }
 
     $result->closeCursor();
@@ -31,7 +31,7 @@ function showTableDepartement($bdd)
 function showTableNafSection($bdd)
 {
     $option = '';
-    $result = getTableNaf($bdd);
+    $result = getTableNafSec($bdd);
 
     while ($data = $result->fetch()) {
         $option .= '<option value = "' . $data['section_libelle'] . '">' . $data['section_libelle'] . '</option>';
@@ -44,7 +44,7 @@ function showTableNafSection($bdd)
 function showTableNafDivision($bdd)
 {
     $option = '';
-    $result = getTableNaf($bdd);
+    $result = getTableNafDiv($bdd);
 
     while ($data = $result->fetch()) {
         $option .= '<option value = "' . $data['division_libelle'] . '">' . $data['division_libelle'] . '</option>';
@@ -52,31 +52,4 @@ function showTableNafDivision($bdd)
 
     $result->closeCursor();
     echo $option;
-}
-
-function showEffTot($bdd, $cp) {
-    $result = getEffTotByCp($bdd, $cp);
-    $effTot = 0;
-
-    while ($data = $result->fetch()) {
-        $effTot += $data['EFF_TOT'];
-    }
-
-    $result->closeCursor();
-    echo $effTot;
-}
-
-function showEffectifsByCODGEO($bdd, $codegeo)
-{
-
-    $result = getEffectifsByCODGEO($bdd, $codgeo);
-    $cp = '';
-
-    while ($data = $result->fetch()) {
-        $cp .= '<p>' . $data['EFF_TOT'] . '</p>';
-    }
-
-
-    $result->closeCursor();
-    echo $cp;
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Exercice php</title>
 </head>
 <body>
 
@@ -11,11 +11,7 @@
     <label for="region">Région</label>
     <select id="region-select">
         <option value="">Quelle région ?</option>
-        <?php
-        $dataName = "region";
-
-        showTableRegion($bdd);
-        ?>
+        <?php showTableRegion($bdd); ?>
     </select>
 
     <br><br>
@@ -23,11 +19,9 @@
     <label for="departement">Département</label>
     <select id="departement-select" name="departement-select">
         <option value="">Quelle département ?</option>
-        <?php
-        $dataName = "nom";
 
-        showTableDepartement($bdd);
-        ?>
+        <?php showTableDepartement($bdd); ?>
+
     </select>
 
     <br><br>
@@ -35,11 +29,7 @@
     <label for="section-naf">Section NAF</label>
     <select id="section-naf">
         <option value="">Quelle section ?</option>
-        <?php
-        $dataName = "section_libelle";
-
-        showTableNafSection($bdd);
-        ?>
+        <?php showTableNafSection($bdd); ?>
     </select>
 
     <br><br>
@@ -47,11 +37,7 @@
     <label for="division-naf">Division NAF</label>
     <select id="division-naf">
         <option value="">Quelle division ?</option>
-        <?php
-        $dataName = "division_libelle";
-
-        showTableNafDivision($bdd);
-        ?>
+        <?php showTableNafDivision($bdd); ?>
     </select>
 
     <br><br>

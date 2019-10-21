@@ -1,25 +1,27 @@
 <?php
 include 'Controller.php';
 
-
 $nomDep = $_POST['departement-select'];
 
 $result = getCpByNom($bdd, $nomDep);
 $cp = '';
 
 while ($data = $result->fetch()) {
-    $cp .= '<p>' . $data['cp'] . '</p>';
+    $cp .= '<p> département numéro : ' . $data['cp'] . '</p>';
 }
 
 echo $cp;
 
-//$codegeo = getCODGEOByCp($bdd, $cp);
-//$cg = '';
-//
-//while ($codegeo = $codegeo->fetch()) {
-//    $cg .= '<p>' . $data['DEP'] . '</p>';
-//}
-//echo $cg;
+$effectifByCp = getEffectifByCp($bdd, $cp);
+$effectif = '';
+$Edep = '';
 
-showEffTot($bdd, $cp);
+while ($data = $effectifByCp->fetch()) {
+    var_dump($data);
+    $effectif = $data['SUM(EFF_TOT)'];
+    $Edep = $data['DEP'];
+}
 
+$result->closeCursor();
+echo $effectif;
+echo $Edep;

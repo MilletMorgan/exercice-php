@@ -1,5 +1,5 @@
 <?php
-$servername = "http://mysql.pistil-studio.fr/phpmyadmin/";
+$servername = "localhost";
 $username = "millet";
 $password = "millet69!";
 
